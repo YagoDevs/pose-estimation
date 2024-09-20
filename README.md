@@ -56,7 +56,7 @@ Em algumas imagens, como a mostrada abaixo, o modelo foi capaz de identificar o 
 
 
 Nesta imagem, podemos ver que o modelo tenta marcar articulações que seriam típicas em humanos, como joelhos e cotovelos, mas aplica esses pontos em locais incorretos no boi. Essa limitação ocorre porque os keypoints do modelo estão otimizados para corpos humanos e não para animais.
-![Bovino](./img/boi1.png)
+![Bovino](./img/boi2.png)
 
 Em outros casos, o modelo até identifica um humano corretamente ao lado do boi, mas falha completamente ao posicionar os pontos-chave no animal, como podemos ver na imagem abaixo:
 ![Humano identificado](./img/humano.png)
@@ -71,15 +71,7 @@ Com isso, os resultados obtidos são limitados e não podem ser considerados tot
 ---
 ## 4 - Conclusões e Aprendizados
 
-Este projeto demonstrou a aplicação de técnicas de *pose estimation* em bovinos, mas também revelou as limitações de se utilizar um modelo pré-treinado com dados de humanos para animais. Os principais pontos observados foram:
+Esse projeto ajudou a entender como aplicar técnicas de *pose estimation*, mas ao mesmo tempo revelou as limitações de usar um modelo pré-treinado com dados de humanos para identificar animais. O fato do modelo ter sido treinado para detectar poses humanas dificultou bastante a detecção das poses dos bois. Além disso, o modelo posicionou os *keypoints* de forma incorreta nos animais, mostrando que ele não está adaptado para essa tarefa específica.
 
-1. **Generalização Limitada**: O modelo foi treinado para detectar poses humanas, o que o impediu de realizar uma segmentação e estimativa de pose precisa em bovinos. Em muitos casos, o modelo posicionou incorretamente os *keypoints* nos animais, ou não conseguiu identificá-los.
-   
-2. **Treinamento Específico é Necessário**: Este projeto mostrou a importância de treinar o modelo com dados que representem adequadamente o objeto de estudo. Para melhorar a identificação da pose em bovinos, seria necessário ajustar o modelo ou treiná-lo novamente com um dataset que contenha apenas animais.
-
-3. **Exemplos de Sucesso e Erro**: Como mostrado nas imagens dos resultados, o modelo conseguiu identificar humanos de forma razoável, mas falhou ao aplicar essa detecção em bovinos. Isso evidencia que, apesar do potencial da técnica, ela ainda precisa de refinamento para aplicações em fazendas e monitoramento animal.
-
-4. **Próximos Passos**: Como próximo passo, seria interessante:
-    - **Treinar um modelo específico** para bovinos usando um dataset customizado de *pose estimation* animal, como o próprio *Animal-Pose Dataset*.
-    - **Ajustar o número de *keypoints* e a arquitetura** do modelo para lidar com as articulações e características de diferentes espécies de animais, adaptando a lógica de identificação de articulações para formas corporais não-humanas.
+Ficou claro que é essencial treinar o modelo com dados que realmente sejam adequados ao objetivo do projeto. O próximo passo seria treinar o modelo novamente, mas desta vez usando um dataset de bovinos, para garantir que ele consiga identificar corretamente as articulações e poses desses animais. Isso tornaria o modelo muito mais eficaz e específico para o uso no monitoramento de bovinos.
 
